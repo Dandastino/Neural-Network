@@ -1,3 +1,39 @@
-myenv
+# Python virtual environment
+myenv/
+venv/
+env/
+.env/
 
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Local development settings
+.env
+.env.local
+
+# Project specific
 note.txt
+.dist/
+
+# Logs
+*.log
+
+# OS specific
+.DS_Store
+Thumbs.db
