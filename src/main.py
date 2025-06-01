@@ -16,7 +16,7 @@ def preprocess_data(data):
     
     # Use CountVectorizer for better text preprocessing
     vectorizer = CountVectorizer(max_features=1000, stop_words='english')
-    X = vectorizer.fit_transform(data['Exercise Name']).toarray()
+    X = vectorizer.fit_transform(data['Title']).toarray()
     
     return X, y, label_encoder, vectorizer
 

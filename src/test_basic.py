@@ -3,9 +3,7 @@ from utils.data_loader import load_gym_data
 from layer.dense import Layer_Dense
 from activations.relu import Activation_ReLU
 from activations.softmax import Activation_Softmax
-from losses.crossentropy import CategoricalCrossentropy
-from optimizers.sgd import Optimizer_SGD
-from sklearn.preprocessing import LabelEncoder
+
 
 def test_data_loading():
     """Test if data can be loaded correctly"""

@@ -23,7 +23,7 @@ def load_gym_data():
             raise pd.errors.EmptyDataError("The dataset is empty")
             
         # Ensure required columns exist
-        required_columns = ['Exercise Name', 'BodyPart']
+        required_columns = ['Title' ,'Desc','Type','BodyPart','Equipment','Level','Rating','RatingDesc']
         missing_columns = [col for col in required_columns if col not in data.columns]
         if missing_columns:
             raise ValueError(f"Missing required columns: {missing_columns}")
