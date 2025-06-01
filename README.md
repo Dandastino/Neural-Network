@@ -1,88 +1,238 @@
-# Neural Network from Scratch
+# 🏋️‍♂️ Neural Network for Exercise Classification
 
-## 🚀 Features
-- Custom implementation of neural network components:
-  - Dense layers with Xavier/Glorot initialization
-  - ReLU and Softmax activation functions
-  - Categorical Cross-Entropy loss
-  - Stochastic Gradient Descent optimizer
-- Text preprocessing using CountVectorizer
-- Data normalization using StandardScaler
-- Train/validation/test split for proper model evaluation
-- Progress monitoring during training
+## 📝 Abstract
+This project implements a neural network-based classification system for gym exercises. The system utilizes natural language processing techniques to analyze exercise names and descriptions and classify them into appropriate body part categories. The implementation features a custom-built neural network architecture with dense layers, batch normalization, dropout, and modern activation functions, demonstrating the practical application of deep learning in fitness domain classification.
 
-## 📂 Project Structure
+## 🎯 Introduction
+
+### 🚀 Project Overview
+This project represents an innovative approach to exercise classification using deep learning techniques. By leveraging neural networks and natural language processing, the system can accurately categorize gym exercises based on their descriptions and characteristics.
+
+### ❓ Problem Statement
+The classification of exercises into appropriate body part categories is crucial for:
+- Creating balanced workout routines
+- Preventing muscle imbalances
+- Optimizing training programs
+- Ensuring proper exercise selection
+
+### 🎯 Objectives
+- Implement a neural network architecture for exercise classification
+- Process and analyze exercise descriptions using NLP techniques
+- Achieve high accuracy in exercise categorization
+- Provide a scalable and maintainable solution
+
+## 🛠️ Technical Architecture
+
+### 🔧 Core Components
+- **Neural Network Implementation**
+  - Custom dense layers
+  - Batch Normalization layers
+  - Dropout layers for regularization
+  - ReLU activation function
+  - Softmax output layer
+  - Categorical cross-entropy loss function
+  - Adam optimizer
+
+- **Data Processing Pipeline**
+  - Text vectorization using CountVectorizer
+  - Label encoding for categorical variables
+  - Data normalization using StandardScaler
+  - Train/validation/test split (70/15/15)
+
+### 💻 Technologies Used
+- Python 3.12
+- NumPy: Numerical computations
+- Pandas: Data manipulation
+- Scikit-learn: Machine learning utilities
+- Matplotlib & Seaborn: Data visualization
+- Custom neural network implementation
+
+### 💾 Hardware Requirements
+- CPU: Intel/AMD processor
+- RAM: Minimum 8GB recommended
+- Storage: 1GB free space
+- GPU: Intel Arc Graphics (optional, for acceleration)
+
+## 🏗️ Implementation Details
+
+### 📊 Data Structure
+The system processes the following features:
+- Exercise Title
+- Description
+- Type
+- Body Part
+- Equipment
+- Level
+- Rating
+- Rating Description
+
+### 🧠 Model Architecture
+1. **Input Layer**: Vectorized exercise descriptions
+2. **Hidden Layer 1**: 256 neurons with BatchNorm, ReLU activation, and Dropout (0.3)
+3. **Hidden Layer 2**: 128 neurons with BatchNorm, ReLU activation, and Dropout (0.2)
+4. **Hidden Layer 3**: 64 neurons with BatchNorm, ReLU activation, and Dropout (0.1)
+5. **Output Layer**: Softmax activation for multi-class classification
+
+### 🚂 Training Process
+- Learning rate: 0.001
+- Epochs: 200 (with early stopping)
+- Batch processing
+- Validation monitoring
+- Early stopping based on validation accuracy (patience=20)
+
+## 🤔 Design Choices and Rationale
+
+### 🏎️💨 Optimizer Selection
+**Adam optimizer over SGD for several reasons:**
+- Adaptive learning rates for each parameter
+- Faster convergence
+- Better handling of sparse gradients
+- Built-in momentum and RMSprop features
+- More stable training process
+
+### 🏗️ Layer Architecture
+1. **Batch Normalization**:
+   - Stabilizes training
+   - Reduces internal covariate shift
+   - Acts as a regularizer
+   - Allows higher learning rates
+
+2. **Dropout**:
+   - Prevents overfitting
+   - Forces the network to learn robust features
+   - Different rates for different layers (0.3 → 0.2 → 0.1)
+   - Higher rates in early layers to prevent overfitting
+
+3. **ReLU Activation**:
+   - Mitigates vanishing gradient problem
+   - Computationally efficient
+   - Sparse activation
+   - Better gradient flow
+
+### 📉 Loss Function
+Categorical Cross-Entropy was chosen because:
+- Suitable for multi-class classification
+- Provides good gradient properties
+- Works well with softmax output
+- Handles class probabilities effectively
+
+## 📦 Requirements
+
+### 🐍 Python Packages
 ```
-src/
-├── activations/
-│   ├── relu.py         # ReLU activation function
-│   └── softmax.py      # Softmax activation function
-├── layer/
-│   └── dense.py        # Dense layer implementation
-├── losses/
-│   └── crossentropy.py # Categorical Cross-Entropy loss
-├── optimizers/
-│   └── sgd.py          # Stochastic Gradient Descent optimizer
-├── utils/
-│   └── data_loader.py  # Data loading and preprocessing utilities
-└── main.py             # Main training script
+numpy>=1.26.0      # Numerical computations
+pandas>=2.1.0      # Data manipulation
+scikit-learn>=1.3.0 # Machine learning utilities
+matplotlib>=3.8.0   # Data visualization
+tqdm>=4.66.0       # Progress bars
+seaborn>=0.13.0    # Statistical data visualization
 ```
 
-## 🔍 How It Works
-1. Data Preprocessing:
-   - Load exercise dataset
-   - Convert exercise names to numerical features using CountVectorizer
-   - Encode body part labels
-   - Normalize data using StandardScaler
-
-2. Model Training:
-   - Split data into train/validation/test sets
-   - Forward pass through the network
-   - Calculate loss and accuracy
-   - Backpropagate errors
-   - Update weights using SGD
-
-3. Evaluation:
-   - Monitor training progress every 10 epochs
-   - Track validation accuracy
-   - Evaluate final performance on test set
-
-## 🧠 Concepts Covered
-- Neural Network Architecture
-  - Dense Layers
-  - Activation Functions (ReLU, Softmax)
-  - Loss Functions (Cross-Entropy)
-  - Optimizers (SGD)
-- Backpropagation
-- Gradient Descent
-- Text Preprocessing
-- Data Normalization
-- Model Evaluation
-
-## 💡 Why I Built This
-This project was built to:
-- Understand neural networks from the ground up
-- Implement core deep learning concepts from scratch
-- Create a practical application for exercise classification
-- Learn about text processing and feature engineering
-- Practice proper model evaluation techniques
-
-## 📦 Setup & Usage
-1. Create and activate virtual environment:
+### 💻 Installation
 ```bash
-python3 -m venv myenv
-source myenv/bin/activate
+# Create virtual environment
+python -m venv myenv
+
+# Activate virtual environment
+source myenv/bin/activate  # Linux/Mac
+# or
+myenv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-2. Install dependencies:
-```bash
-pip install numpy scikit-learn pandas
-```
+## 🚀 Usage
 
-3. Run the training:
+### ▶️ Running the Model
 ```bash
 python src/main.py
 ```
 
-## 📄 License
-This project is open source and available under the MIT License.
+### 📊 Expected Output
+The model will display:
+- Preprocessing progress
+- Training progress with tqdm bar
+- Loss and accuracy metrics every 10 epochs
+- Final test accuracy
+- Class distribution in test set
+
+## 📈 Performance Metrics
+
+### 🎯 Training Results
+- Training Accuracy: 97.1%
+- Validation Accuracy: 70.4%
+- Test Accuracy: 70.1%
+- Training Time: 18.05 seconds
+- Preprocessing Time: 0.07 seconds
+
+### 📊 Class Distribution Analysis
+The model was tested on a dataset with the following distribution:
+- Most Common Classes:
+  - Abdominals: 662 samples
+  - Quadriceps: 646 samples
+  - Shoulders: 340 samples
+  - Chest: 262 samples
+  - Biceps: 168 samples
+  - Triceps: 151 samples
+
+- Less Common Classes:
+  - Lats: 124 samples
+  - Hamstrings: 121 samples
+  - Middle Back: 118 samples
+  - Lower Back: 97 samples
+  - Glutes: 81 samples
+  - Calves: 47 samples
+  - Forearms: 31 samples
+  - Traps: 24 samples
+  - Abductors: 21 samples
+  - Adductors: 17 samples
+
+### 📈 Training Progress
+The model showed significant improvement during training:
+- Initial accuracy (Epoch 0): 6.7%
+- Rapid improvement (Epoch 20): 64.6%
+- Plateau reached (Epoch 100): 94.5%
+- Final accuracy (Epoch 200): 97.1%
+
+### ⚠️ Class Imbalance Challenge
+The model faces a significant challenge due to class imbalance in the training data:
+1. **Data Quantity Disparity**:
+   - Some classes (e.g., Abdominals: 662) have 30x more examples than others (e.g., Adductors: 17)
+   - This imbalance affects the model's ability to learn patterns for underrepresented classes
+
+2. **Impact on Performance**:
+   - High training accuracy (97.4%) but lower validation accuracy (68.8%)
+   - The model tends to perform better on classes with more training examples
+   - Classes with fewer examples (e.g., Adductors, Traps) are harder to classify correctly
+
+3. **Current Solutions**:
+   - Filtered out classes with less than 10 examples
+   - Implemented dropout layers to prevent overfitting
+   - Used batch normalization for better training stability
+
+## 📁 Project Structure
+```
+├── src/
+│   ├── main.py
+│   ├── layer/
+│   │   ├── dense.py
+│   │   ├── batch_norm.py
+│   │   └── dropout.py
+│   ├── activations/
+│   │   ├── relu.py
+│   │   └── softmax.py
+│   ├── losses/
+│   │   └── crossentropy.py
+│   ├── optimizers/
+│   │   └── adam.py
+│   └── utils/
+│       └── data_loader.py
+├── archive/
+│   └── megaGymDataset.csv
+├── requirements.txt
+└── README.md
+```
+
+## 📜 License
+This project is licensed under the MIT License - see the LICENSE file for details.

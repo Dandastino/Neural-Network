@@ -2,38 +2,39 @@
 myenv/
 venv/
 env/
-.env/
 
 # Python bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Distribution / packaging
-dist/
-build/
-*.egg-info/
-
 # IDE specific files
 .idea/
 .vscode/
-*.swp
-*.swo
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Local development settings
-.env
-.env.local
-
-# Project specific
-note.txt
-.dist/
-
-# Logs
-*.log
-
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Machine Learning specific
+*.pkl
+*.npy
+*.npz
+
+# Model checkpoints
+checkpoints/
+saved_models/
+
+# Cache directories
+.cache/
+.pytest_cache/
+
+# Temporary files
+tmp/
+temp/
+
+# files
+note.txt
