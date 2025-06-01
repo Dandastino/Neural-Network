@@ -2,27 +2,15 @@ import pandas as pd
 import os
 
 def load_gym_data():
-    """
-    Load the gym dataset from the archive directory.
-    Returns:
-        pandas.DataFrame: The loaded dataset
-    Raises:
-        FileNotFoundError: If the dataset file is not found
-        pd.errors.EmptyDataError: If the dataset file is empty
-    """
     try:
-        # Get the absolute path to the dataset
         current_dir = os.path.dirname(os.path.abspath(__file__))
         dataset_path = os.path.join(current_dir, '..', '..', 'archive', 'megaGymDataset.csv')
         
-        # Load the dataset
         data = pd.read_csv(dataset_path)
         
-        # Basic validation
         if data.empty:
             raise pd.errors.EmptyDataError("The dataset is empty")
             
-        # Ensure required columns exist
         required_columns = ['Title' ,'Desc','Type','BodyPart','Equipment','Level','Rating','RatingDesc']
         missing_columns = [col for col in required_columns if col not in data.columns]
         if missing_columns:
