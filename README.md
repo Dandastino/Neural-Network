@@ -135,7 +135,6 @@ python -m venv myenv
 
 # Activate virtual environment
 source myenv/bin/activate  # Linux/Mac
-# or
 myenv\Scripts\activate  # Windows
 
 # Install dependencies
@@ -160,10 +159,10 @@ The model will display:
 ## 📈 Performance Metrics
 
 ### 🎯 Training Results
-- Training Accuracy: 97.1%
-- Validation Accuracy: 70.4%
-- Test Accuracy: 70.1%
-- Training Time: 18.05 seconds
+- Training Accuracy: 99.6%
+- Validation Accuracy: 83.8%
+- Test Accuracy: 81.2%
+- Training Time: 24.34 seconds
 - Preprocessing Time: 0.07 seconds
 
 ### 📊 Class Distribution Analysis
@@ -191,9 +190,9 @@ The model was tested on a dataset with the following distribution:
 ### 📈 Training Progress
 The model showed significant improvement during training:
 - Initial accuracy (Epoch 0): 6.7%
-- Rapid improvement (Epoch 20): 64.6%
-- Plateau reached (Epoch 100): 94.5%
-- Final accuracy (Epoch 200): 97.1%
+- Rapid improvement (Epoch 20): 82.8%
+- Plateau reached (Epoch 100): 99.0%
+- Final accuracy (Epoch 200): 99.6%
 
 ### ⚠️ Class Imbalance Challenge
 The model faces a significant challenge due to class imbalance in the training data:
@@ -202,12 +201,12 @@ The model faces a significant challenge due to class imbalance in the training d
    - This imbalance affects the model's ability to learn patterns for underrepresented classes
 
 2. **Impact on Performance**:
-   - High training accuracy (97.4%) but lower validation accuracy (68.8%)
+   - High training accuracy (99.6%) but lower validation accuracy (83.8%)
    - The model tends to perform better on classes with more training examples
    - Classes with fewer examples (e.g., Adductors, Traps) are harder to classify correctly
 
 3. **Current Solutions**:
-   - Filtered out classes with less than 10 examples
+   - Filtered out classes with less than 100 examples
    - Implemented dropout layers to prevent overfitting
    - Used batch normalization for better training stability
 
