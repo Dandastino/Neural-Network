@@ -234,4 +234,4 @@ The model faces a significant challenge due to class imbalance in the training d
 ```
 
 ## 📜 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the [MIT License](LICENSE) - click to view the full license text.
